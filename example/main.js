@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
     wavesurfer.on('ready', function () {
         progressDiv.style.display = 'none';
     });
+    wavesurfer.on('destroy', function () {
+        progressDiv.style.display = 'none';
+    });
 
     // Init
     wavesurfer.init(options);
@@ -47,6 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
 // Won't work on iOS until you touch the page
 wavesurfer.on('ready', function () {
     //wavesurfer.play();
+});
+
+// Do something when the clip is over
+wavesurfer.on('finish', function () {
+    console.log('Finished playing');
 });
 
 // Bind buttons and keypresses
